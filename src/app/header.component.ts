@@ -1,5 +1,7 @@
-import {Component} from "@angular/core";
-import {Router} from "@angular/router";
+import {AfterViewInit, Component, Input, ViewChild} from "@angular/core";
+import { Router } from "@angular/router";
+import { trigger, state, style, animate, transition } from "@angular/animations";
+
 
 @Component({
   selector: "header",
@@ -18,7 +20,12 @@ import {Router} from "@angular/router";
         
         <div class="row">
           <div id="purposes" class="primary">
-            <p class="thinFont1">Developing</p>
+            <div>
+              <p class="thinFont1" id="developingTitle">Developing</p>
+              <div id="purposesAnimation" [@slideInOut]="slideControl">
+                <p #PurposeItem class="thinFont1">{{availablePurposes[currentPurposeIndex]}}</p>
+              </div>
+            </div>
           </div>
           <div id="viewGithub" class="secondary clickable" (click)="toGithub()">
             <img src="/assets/github-icon.png">
@@ -54,19 +61,19 @@ import {Router} from "@angular/router";
       </div>
     </div>
   `,
-  styles: [`    
+  styles: [`
     .clickable {
       opacity: 1;
     }
-    
+
     .clickable:hover {
       opacity: 0.8;
     }
-    
+
     .clickable:active {
       opacity: 0.6;
     }
-     
+
     p {
       margin: 0;
     }
@@ -134,20 +141,38 @@ import {Router} from "@angular/router";
 
     #purposes {
       background-color: #3f3f3f;
+      padding-left: 35px;
+      width: calc(100% - 155px);
+    }
+
+    #purposes * {
+      float: left;
     }
 
     #purposes p {
       color: #e4e4e4;
+      font-size: 25px; /* Font actually 70px tall with this */
+    }
 
-      font-size: 31px; /* Font actually 70px tall with this */
-      padding: 0;
-      margin: 40px 30px;
+    #purposes > div {
+      margin: 45px 0;
+      height: 35px;
+    }
+    
+    #developingTitle {
+      margin-right: 8px;
+    }
+    
+    #purposesAnimation {
+      border-right: 5px solid #e4e4e4;
+      overflow: hidden;
+      white-space: nowrap;
     }
 
     #viewGithub {
       background-color: #3b3b3b;
     }
-    
+
     #viewGithub img {
       margin: 35px;
       height: 50px;
@@ -159,7 +184,7 @@ import {Router} from "@angular/router";
       color: white;
       text-align: center;
     }
-    
+
     .shortcut img {
       height: 50px;
       width: 50px;
@@ -189,10 +214,50 @@ import {Router} from "@angular/router";
     #blog {
       background-color: #d9a81d;
     }
-  `]
+  `],
+  animations: [
+    trigger("slideInOut", [
+      state("in", style({
+        width: "200px"
+      })),
+      state("out", style({
+        width: "0px"
+      })),
+      transition("in => out", animate("400ms ease-in-out")),
+      transition("out => in", animate("400ms ease-in-out"))
+    ])
+  ]
 })
 export class HeaderComponent {
-  constructor (private router: Router) {}
+  constructor (private router: Router) {
+    this.toggleSlideControl();
+  }
+
+  slideControl: string = "out";
+  availablePurposes: string[] = [
+    "Python Utilities",
+    "Bash Automation",
+    "Unity3D Games",
+    "Angular Pages",
+    "BotW Extractors",
+    "Java Solutions",
+    "FTC Robot Code",
+    "Good Grades"
+  ];
+  currentPurposeIndex: number = 0;
+  toggleSlideControl = (): void => {
+    if (this.slideControl === "in") {
+      this.slideControl = "out";
+      setTimeout(() => this.toggleSlideControl(), 500);
+    } else {
+      this.currentPurposeIndex++;
+      if (this.currentPurposeIndex === this.availablePurposes.length) {
+        this.currentPurposeIndex = 0;
+      }
+      this.slideControl = "in";
+      setTimeout(() => this.toggleSlideControl(), 1800);
+    }
+  }
 
   redirectTo(route: string): void {
     this.router.navigate([route]);
