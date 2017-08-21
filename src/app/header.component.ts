@@ -10,50 +10,42 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
       <img id="profilePicture" src="/assets/profile-picture.png">
       <div id="profileInfo">
         <div class="row">
-          <div id="nameContainer" class="primary">
-            <p class="thinFont1">Makiah Bennett</p>
+          <div style="background-color: #4f4f4f" class="primary">
+            <p id="myName" class="thinFont1">Makiah Bennett</p>
           </div>
-          <div id="downloadCV" class="secondary clickable">
-            <img src="/assets/cloud-download.png">
-          </div>
-        </div>
-        
-        <div class="row">
-          <div id="purposes" class="primary">
-            <div>
-              <p class="thinFont1" id="developingTitle">Developing</p>
-              <div id="purposesAnimation" [@slideInOut]="slideControl">
-                <p #PurposeItem class="thinFont1">{{availablePurposes[currentPurposeIndex]}}</p>
-              </div>
-            </div>
-          </div>
-          <div id="viewGithub" class="secondary clickable" (click)="toGithub()">
-            <img src="/assets/github-icon.png">
+          <div class="secondary clickable" style="background-color: #474747">
+            <img id="cvDownloadIcon" src="/assets/cloud-download.png">
           </div>
         </div>
 
         <div class="row">
-          <div id="home" class="shortcut clickable" (click)="redirectTo('home')">
-            <img src="/assets/home-icon.png">
-            <p class="thinFont1">Home</p>
+          <div id="purposes" class="primary" style="background-color: #3f3f3f;">
+            <div>
+              <p class="thinFont1" id="developingTitle">Developing</p>
+              <div id="purposesAnimation" [@slideInOut]="slideControl">
+                <p class="thinFont1">{{availablePurposes[currentPurposeIndex]}}</p>
+              </div>
+            </div>
           </div>
-          <div id="resume" class="shortcut clickable" (click)="redirectTo('resume')">
+          <div style="background-color: #3b3b3b" class="secondary clickable" (click)="toGithub()">
+            <img id="githubIcon" src="/assets/github-icon.png">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="shortcut clickable" (click)="redirectTo('about-me')" style="background-color: #4085bc">
+            <img src="/assets/home-icon.png">
+            <p class="thinFont1">About Me</p>
+          </div>
+          <div class="shortcut clickable" (click)="redirectTo('resume')" style="background-color: #db474e">
             <img src="/assets/student-icon.png">
             <p class="thinFont1">Resume</p>
           </div>
-          <div id="portfolio" class="shortcut clickable" (click)="redirectTo('portfolio')">
+          <div class="shortcut clickable" (click)="redirectTo('hobbies')" style="background-color: #57ba4a">
             <img src="/assets/resume-icon.png">
-            <p class="thinFont1">Portfolio</p>
+            <p class="thinFont1">Clubs/Hobbies</p>
           </div>
-          <div id="contacts" class="shortcut clickable" (click)="redirectTo('contacts')">
-            <img src="/assets/references-icon.png">
-            <p class="thinFont1">Contacts</p>
-          </div>
-          <div id="feedback" class="shortcut clickable" (click)="redirectTo('feedback')">
-            <img src="/assets/feedback-icon.png">
-            <p class="thinFont1">Feedback</p>
-          </div>
-          <div id="blog" class="shortcut clickable" (click)="redirectTo('blog')">
+          <div class="shortcut clickable" (click)="redirectTo('blog')" style="background-color: #de9e00">
             <img src="/assets/pencil-icon.png">
             <p class="thinFont1">Blog</p>
           </div>
@@ -62,6 +54,10 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
     </div>
   `,
   styles: [`
+    div {
+      margin: 0;
+    }
+    
     .clickable {
       opacity: 1;
     }
@@ -110,39 +106,28 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
 
     .primary {
       width: calc(100% - 120px);
-      background-color: red;
     }
 
     .secondary {
       width: 120px;
     }
 
-    #nameContainer {
-      background-color: #4f4f4f;
-    }
-
-    #nameContainer p {
+    #myName {
       color: #e4e4e4;
 
-      font-size: 41px; /* Font actually 70px tall with this */
+      font-size: 41px;
       padding: 0;
       margin: 35px 30px;
     }
 
-    #downloadCV {
-      background-color: #474747;
-    }
-
-    #downloadCV img {
+    #cvDownloadIcon{
       margin: 35px;
       height: 50px;
       width: 50px;
     }
 
     #purposes {
-      background-color: #3f3f3f;
       padding-left: 35px;
-      width: calc(100% - 155px);
     }
 
     #purposes * {
@@ -169,18 +154,14 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
       white-space: nowrap;
     }
 
-    #viewGithub {
-      background-color: #3b3b3b;
-    }
-
-    #viewGithub img {
+    #githubIcon {
       margin: 35px;
       height: 50px;
       width: 50px;
     }
 
     .shortcut {
-      width: calc(100% / 6);
+      width: calc(100% / 4);
       color: white;
       text-align: center;
     }
@@ -189,30 +170,6 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
       height: 50px;
       width: 50px;
       margin-top: 22px;
-    }
-
-    #home {
-      background-color: #1abc9c;
-    }
-
-    #resume {
-      background-color: #3498db;
-    }
-
-    #portfolio {
-      background-color: #9b59b6;
-    }
-
-    #contacts {
-      background-color: #e67e22;
-    }
-
-    #feedback {
-      background-color: #e74c3c;
-    }
-
-    #blog {
-      background-color: #d9a81d;
     }
   `],
   animations: [

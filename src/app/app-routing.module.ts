@@ -1,20 +1,16 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
-import { HomeComponent } from "./routes/home.component";
+import { AboutMeComponent } from "./routes/about-me.component";
 import { BlogComponent } from "./routes/blog.component";
-import { ContactsComponent } from "./routes/contacts.component";
-import { FeedbackComponent } from "./routes/feedback.component";
-import { PortfolioComponent } from "./routes/portfolio.component";
+import { HobbiesComponent } from "./routes/hobbies.component";
 import { ResumeComponent } from "./routes/resume.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: "full" },
-  { path: "home", component: HomeComponent },
+  { path: "", redirectTo: "/about-me", pathMatch: "full" },
+  { path: "about-me", component: AboutMeComponent },
   { path: "blog", component: BlogComponent },
-  { path: "contacts", component: ContactsComponent },
-  { path: "feedback", component: FeedbackComponent },
-  { path: "portfolio", component: PortfolioComponent },
+  { path: "hobbies", component: HobbiesComponent },
   { path: "resume", component: ResumeComponent }
 ];
 

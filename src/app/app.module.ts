@@ -2,17 +2,17 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 
 // Components
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header.component";
+import { FooterComponent } from "./footer.component";
 
-import { HomeComponent } from "./routes/home.component";
+import { AboutMeComponent } from "./routes/about-me.component";
 import { BlogComponent } from "./routes/blog.component";
-import { ContactsComponent } from "./routes/contacts.component";
-import { FeedbackComponent } from "./routes/feedback.component";
-import { PortfolioComponent } from "./routes/portfolio.component";
+import { HobbiesComponent } from "./routes/hobbies.component";
 import { ResumeComponent } from "./routes/resume.component";
 
 // Services
@@ -21,17 +21,17 @@ import { ResumeComponent } from "./routes/resume.component";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule.forRoot()
   ],
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,
+    AboutMeComponent,
     BlogComponent,
-    ContactsComponent,
-    FeedbackComponent,
-    PortfolioComponent,
-    ResumeComponent
+    HobbiesComponent,
+    ResumeComponent,
+    FooterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
