@@ -7,7 +7,7 @@ import {NavigationEnd, Router} from "@angular/router";
   template: `
     <div id="projectsIntro">
       <h3 class="display-3 thinFont2">Projects</h3>
-      <p>Cool stuff I've in the process of developing!</p>
+      <p>Cool stuff I'm in the process of developing!</p>
     </div>
 
     <div id="projectsParallax" class="parallax">
