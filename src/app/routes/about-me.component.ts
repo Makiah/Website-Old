@@ -15,16 +15,16 @@ import {Router} from "@angular/router";
         <h4 class="thinFont1" style="font-size: 30px;">Personal Info</h4>
         <table class="table table-bordered">
           <tr>
-            <td>School</td>
-            <td>Natick High, Natick, MA</td>
-          </tr>
-          <tr>
             <td>Favorite Book Series</td>
             <td>The Heroes of Olympus</td>
           </tr>
           <tr>
             <td>Favorite TV Show</td>
             <td>Archer</td>
+          </tr>
+          <tr>
+            <td>Favorite Movie(s)</td>
+            <td>21, Mission Impossible 5</td>
           </tr>
           <tr>
             <td>Favored Career Paths</td>

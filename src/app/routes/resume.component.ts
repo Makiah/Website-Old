@@ -30,10 +30,12 @@ class TimelineItem {
           <div></div>
         </div>
         <div class="timelineContent">
-          <img [src]="timelineItem.image">
-          <div>
-            <h1 class="thinFont2">{{timelineItem.title}}</h1>
-            <p class="thinFont1">{{timelineItem.description}}</p>
+          <div class="contentImage" [style.background-image]="'url(' + timelineItem.image + ')'"></div>
+          <div class="contentDescription">
+            <div>
+              <h1 class="thinFont2">{{timelineItem.title}}</h1>
+              <p class="thinFont1">{{timelineItem.description}}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -103,14 +105,22 @@ class TimelineItem {
       float: left;
     }
 
-    .timelineContent > img {
+    .timelineContent > .contentImage {
       width: 60%;
-      height: auto;
+      height: 100%;
+      
+      background-position: center;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
     }
 
-    .timelineContent > div {
+    .timelineContent > .contentDescription {
+      display: flex; 
+      align-items: center;
+      
       width: 40%;
       margin: 0;
+      height: 100%;
       padding: 10px;
     }
 
