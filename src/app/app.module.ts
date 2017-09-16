@@ -14,6 +14,7 @@ import { AboutMeComponent } from "./routes/about-me.component";
 import { BlogComponent } from "./routes/blog.component";
 import { HobbiesComponent } from "./routes/hobbies.component";
 import { ResumeComponent } from "./routes/resume.component";
+import {ProjectsComponent} from "./routes/projects.component";
 
 // Services
 
@@ -31,6 +32,7 @@ import { ResumeComponent } from "./routes/resume.component";
     BlogComponent,
     HobbiesComponent,
     ResumeComponent,
+    ProjectsComponent,
     FooterComponent
   ],
   providers: [],

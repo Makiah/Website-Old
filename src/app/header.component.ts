@@ -45,6 +45,10 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
             <img src="/assets/resume-icon.png">
             <p class="thinFont1">Clubs/Hobbies</p>
           </div>
+          <div class="shortcut clickable" (click)="redirectTo('projects')" style="background-color: rgba(151,151,151,0.96)">
+            <img src="/assets/project-icon.png">
+            <p class="thinFont1">Projects</p>
+          </div>
           <div class="shortcut clickable" (click)="redirectTo('blog')" style="background-color: #de9e00">
             <img src="/assets/pencil-icon.png">
             <p class="thinFont1">Blog</p>
@@ -161,7 +165,7 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
     }
 
     .shortcut {
-      width: calc(100% / 4);
+      width: calc(100% / 5);
       color: white;
       text-align: center;
     }
