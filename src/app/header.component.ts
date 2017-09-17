@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Input, ViewChild } from "@angular/core";
-import { Router } from "@angular/router";
+import {NavigationEnd, Router} from "@angular/router";
 import { trigger, state, style, animate, transition } from "@angular/animations";
 
 
@@ -13,7 +13,7 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
           <div style="background-color: #4f4f4f" class="primary">
             <p id="myName" class="thinFont1">Makiah Bennett</p>
           </div>
-          <div class="secondary clickable" style="background-color: #474747">
+          <div class="secondary unselectedRoute" style="background-color: #474747">
             <img id="cvDownloadIcon" src="/assets/cloud-download.png">
           </div>
         </div>
@@ -27,29 +27,30 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
               </div>
             </div>
           </div>
-          <div style="background-color: #3b3b3b" class="secondary clickable" (click)="toGithub()">
+          <div style="background-color: #3b3b3b" class="secondary unselectedRoute" (click)="toGithub()">
             <img id="githubIcon" src="/assets/github-icon.png">
           </div>
         </div>
 
         <div class="row">
-          <div class="shortcut clickable" (click)="redirectTo('about-me')" style="background-color: #4085bc">
+          <div class="shortcut {{currentRoute === '/about-me' ? 'selectedRoute' : 'unselectedRoute'}}" (click)="redirectTo('about-me')" style="background-color: #4085bc">
             <img src="/assets/home-icon.png">
             <p class="thinFont1">About Me</p>
           </div>
-          <div class="shortcut clickable" (click)="redirectTo('resume')" style="background-color: #db474e">
+          <div class="shortcut {{currentRoute === '/resume' ? 'selectedRoute' : 'unselectedRoute'}}" (click)="redirectTo('resume')" style="background-color: #db474e">
             <img src="/assets/student-icon.png">
             <p class="thinFont1">Resume</p>
           </div>
-          <div class="shortcut clickable" (click)="redirectTo('hobbies')" style="background-color: #57ba4a">
+          <div class="shortcut {{currentRoute === '/hobbies' ? 'selectedRoute' : 'unselectedRoute'}}" (click)="redirectTo('hobbies')" style="background-color: #57ba4a">
             <img src="/assets/resume-icon.png">
             <p class="thinFont1">Clubs/Hobbies</p>
           </div>
-          <div class="shortcut clickable" (click)="redirectTo('projects')" style="background-color: rgba(151,151,151,0.96)">
+          <div class="shortcut {{currentRoute === '/projects' ? 'selectedRoute' : 'unselectedRoute'}}" (click)="redirectTo('projects')"
+               style="background-color: rgba(151,151,151,0.96)">
             <img src="/assets/project-icon.png">
             <p class="thinFont1">Projects</p>
           </div>
-          <div class="shortcut clickable" (click)="redirectTo('blog')" style="background-color: #de9e00">
+          <div class="shortcut {{currentRoute === '/blog' ? 'selectedRoute' : 'unselectedRoute'}}" (click)="redirectTo('blog')" style="background-color: #de9e00">
             <img src="/assets/pencil-icon.png">
             <p class="thinFont1">Blog</p>
           </div>
@@ -58,24 +59,28 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
     </div>
   `,
   styles: [`
+    p {
+      margin: 0;
+    }
+
     div {
       margin: 0;
     }
-    
-    .clickable {
+
+    .unselectedRoute {
       opacity: 1;
     }
 
-    .clickable:hover {
+    .unselectedRoute:hover {
       opacity: 0.8;
     }
 
-    .clickable:active {
+    .unselectedRoute:active {
       opacity: 0.6;
     }
-
-    p {
-      margin: 0;
+    
+    .selectedRoute {
+      opacity: 1;
     }
 
     #headingContainer {
@@ -124,7 +129,7 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
       margin: 35px 30px;
     }
 
-    #cvDownloadIcon{
+    #cvDownloadIcon {
       margin: 35px;
       height: 50px;
       width: 50px;
@@ -147,11 +152,11 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
       margin: 45px 0;
       height: 35px;
     }
-    
+
     #developingTitle {
       margin-right: 8px;
     }
-    
+
     #purposesAnimation {
       border-right: 5px solid #e4e4e4;
       overflow: hidden;
@@ -192,7 +197,15 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
 export class HeaderComponent {
   constructor (private router: Router) {
     this.toggleSlideControl();
+
+    this.router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        this.currentRoute = val.urlAfterRedirects;
+      }
+    });
   }
+
+  currentRoute: string = "/about-me";
 
   slideControl: string = "out";
   availablePurposes: string[] = [
