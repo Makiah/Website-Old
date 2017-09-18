@@ -119,12 +119,12 @@ import {NavigationEnd, Router} from "@angular/router";
         </div>
       </div>
 
-      <!-- SMART-CO -->
-      <div id="smart-co" class="parallax__group">
+      <!-- SMART Cancer Navigator -->
+      <div id="smart-cancer-navigator" class="parallax__group">
         <div class="parallax__layer parallax__layer--fore">
           <div class="centeredContent">
-            <div class="lightPanel clickablePanel" (click)="redirectTo('https://github.com/smart-co/Application')">
-              <p class="thinFont1 panelHeading">SMART-CO</p>
+            <div class="lightPanel clickablePanel" (click)="redirectTo('https://github.com/smart-cancer-navigator/Application')">
+              <p class="thinFont1 panelHeading">SMART Cancer Navigator</p>
             </div>
             <div class="tablePanel">
               <table class="table table-bordered">
@@ -149,31 +149,31 @@ import {NavigationEnd, Router} from "@angular/router";
 
       <!--&lt;!&ndash; Resources &ndash;&gt;-->
       <!--<div id="resourceSection" class="parallax__group">-->
-        <!--<div class="parallax__layer parallax__layer&#45;&#45;base">-->
-          <!--<div class="centeredContent">-->
-            <!--<div class="darkPanel clickablePanel">-->
-              <!--<p class="thinFont1 panelHeading">Resources</p>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="parallax__layer parallax__layer&#45;&#45;back">-->
-          <!--<div class="imagePanel">-->
-            <!--<img src="/assets/hospital-outreach.jpg">-->
-          <!--</div>-->
-        <!--</div>-->
+      <!--<div class="parallax__layer parallax__layer&#45;&#45;base">-->
+      <!--<div class="centeredContent">-->
+      <!--<div class="darkPanel clickablePanel">-->
+      <!--<p class="thinFont1 panelHeading">Resources</p>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="parallax__layer parallax__layer&#45;&#45;back">-->
+      <!--<div class="imagePanel">-->
+      <!--<img src="/assets/hospital-outreach.jpg">-->
+      <!--</div>-->
+      <!--</div>-->
       <!--</div>-->
 
       <!--&lt;!&ndash; Contact Us &ndash;&gt;-->
       <!--<div id="contactUsSection" class="parallax__group">-->
-        <!--<div class="parallax__layer parallax__layer&#45;&#45;base">-->
-          <!--<div class="centeredContent">-->
-            <!--<div class="lightPanel clickablePanel">-->
-              <!--<p class="thinFont1 panelHeading">Contact Us!</p>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
+      <!--<div class="parallax__layer parallax__layer&#45;&#45;base">-->
+      <!--<div class="centeredContent">-->
+      <!--<div class="lightPanel clickablePanel">-->
+      <!--<p class="thinFont1 panelHeading">Contact Us!</p>-->
       <!--</div>-->
-    <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+    </div>
   `,
   styles: [`
     #projectsIntro {
@@ -313,11 +313,11 @@ import {NavigationEnd, Router} from "@angular/router";
       background: rgb(184, 223, 101);
     }
 
-    #smart-co {
+    #smart-cancer-navigator {
       z-index: 3; /* slide over group 4 and 6 */
     }
 
-    #smart-co .parallax__layer--base {
+    #smart-cancer-navigator .parallax__layer--base {
       background: rgb(214, 229, 100);
     }
 
