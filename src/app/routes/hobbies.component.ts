@@ -137,7 +137,7 @@ class TimelineItem {
 export class HobbiesComponent {
   timelineItems: TimelineItem[] = [
     new TimelineItem(
-      "/assets/robot-icon.png", "/assets/robotics-worlds.jpg",
+      "/assets/robot-icon.png", "/assets/robotics-states.jpg",
       "Robotics",
       "Robotics has been an incredibly rewarding part of my high school experience, in which I've participated for each of my four years as a programmer.  After a mediocre run to States during my freshman year, we've since made it for each successive year a bit further than the year prior: Super Regionals during sophomore year, and Worlds during junior year.  Festival of Champions this year?  Who knows? :)"
     ),
