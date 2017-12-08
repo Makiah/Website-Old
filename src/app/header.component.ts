@@ -68,15 +68,15 @@ import { trigger, state, style, animate, transition } from "@angular/animations"
     }
 
     .unselectedRoute {
-      opacity: 1;
-    }
-
-    .unselectedRoute:hover {
       opacity: 0.8;
     }
 
+    .unselectedRoute:hover {
+      opacity: 0.9;
+    }
+
     .unselectedRoute:active {
-      opacity: 0.6;
+      opacity: 1;
     }
     
     .selectedRoute {
@@ -201,6 +201,7 @@ export class HeaderComponent {
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.currentRoute = val.urlAfterRedirects;
+        console.log("Current route is " + this.currentRoute);
       }
     });
   }
